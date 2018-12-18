@@ -1,0 +1,16 @@
+<% unless @transaction.errors.blank? %>
+<h3>Você deve informar todos os dados da transação</h3>
+<% end %>
+
+<%= form_for @transaction do |t| %>
+  <%= t.label :amount, 'Quantidade' %>
+  <%= t.text_field :amount %>
+  <%= t.label :currency, 'Moeda' %>
+  <%= t.select :currency, [['Dólar', 'dollar'], ['Real', 'real']] %>
+  <%= t.label :quotation, 'Cotação' %>
+  <%= t.text_field :quotation %>
+  <%= t.label :transaction_type, 'Tipo' %>
+  <%= t.select :transaction_type, [['Compra', 'buy'], ['Venda', 'sell']] %>
+
+  <%= t.submit 'Editar' %>
+<% end %>
