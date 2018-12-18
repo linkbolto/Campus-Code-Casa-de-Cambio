@@ -1,1 +1,28 @@
-'Bem-vindo ao sistema de trocas de moedas'
+<h1>Bem-vindo ao sistema de trocas de moedas</h1>
+
+<% if @transactions.empty? %>
+<h2>Você ainda não possui transações cadastradas</h2>
+<% else %>
+<table>
+    <thead>
+        <tr>
+            <th>Identificador</th>
+            <th>Quantidade</th>
+            <th>Moeda</th>
+            <th>Tipo</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @transactions.each do |t| %>
+        <tr>
+            <td><%=t.id%></td>
+            <td><%=t.amount%></td>
+            <td><%=t.currency_pt%></td>
+            <td><%=t.transaction_type_pt%></td>
+            <td><%=t.total%></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<% end %>
