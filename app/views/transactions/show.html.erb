@@ -1,0 +1,16 @@
+<h3>Identificador</h3>
+<p><%= @transaction.id %></p>
+<h3>Quantidade</h3>
+<p><%= @transaction.amount %></p>
+<h3>Moeda</h3>
+<p><%= @transaction.currency_pt %></p>
+<h3>Cotação</h3>
+<p><%= '$ %.2f' % @transaction.quotation %></p>
+<h3>Tipo</h3>
+<p><%= @transaction.transaction_type_pt %></p>
+<h3>Data</h3>
+<p><%= @transaction.date %></p>
+<h3>Total</h3>
+<p><%= @transaction.total %></p>
+
+<%= link_to 'Voltar', root_path %>

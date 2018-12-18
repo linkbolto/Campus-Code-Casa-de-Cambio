@@ -16,11 +16,11 @@
     <tbody>
         <% @transactions.each do |t| %>
         <tr>
-            <td><%=t.id%></td>
-            <td><%=t.amount%></td>
-            <td><%=t.currency_pt%></td>
-            <td><%=t.transaction_type_pt%></td>
-            <td><%=t.total%></td>
+            <td><%= link_to t.id, t %></td>
+            <td><%= t.amount %></td>
+            <td><%= t.currency_pt %></td>
+            <td><%= t.transaction_type_pt %></td>
+            <td><%= t.total %></td>
         </tr>
         <% end %>
     </tbody>

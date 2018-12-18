@@ -13,4 +13,8 @@ class Transaction < ApplicationRecord
     value *= -1 if transaction_type == 'sell'
     "$  #{'%.2f' % value}"
   end
+
+  def date
+    created_at.strftime('%d/%m/%Y')
+  end
 end
