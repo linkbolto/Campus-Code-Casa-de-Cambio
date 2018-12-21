@@ -1,3 +1,5 @@
 <h3><%= @user.name %></h3>
 <p>E-mail: <%= @user.email %></p>
 <p>CPF: <%= @user.cpf %></p>
+
+<%= link_to 'Editar', edit_user_path(@user) %>
