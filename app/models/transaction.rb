@@ -1,6 +1,8 @@
 class Transaction < ApplicationRecord
 
-  validates :amount, :quotation, :currency, :transaction_type, presence: true
+  belongs_to :user
+
+  validates :amount, :quotation, :currency, :transaction_type, :user_id, presence: true
   
   def currency_pt
     currency == 'dollar' ? 'Dólar' : 'Real'

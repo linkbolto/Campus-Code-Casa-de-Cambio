@@ -11,6 +11,8 @@
   <%= t.text_field :quotation %>
   <%= t.label :transaction_type, 'Tipo' %>
   <%= t.select :transaction_type, [['Compra', 'buy'], ['Venda', 'sell']] %>
+  <%= t.label :user_id, 'Usuário' %>
+  <%= t.collection_select :user_id, User.all, :id, :email %>
 
-  <%= t.submit 'Cadastrar' %>
+  <%= t.submit 'Cadastrar'%>
 <% end %>

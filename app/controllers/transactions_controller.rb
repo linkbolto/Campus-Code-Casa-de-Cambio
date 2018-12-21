@@ -1,6 +1,7 @@
 class TransactionsController < ApplicationController
   def show
     @transaction = Transaction.find(params[:id])
+    @user = User.find(@transaction.user_id)
   end
 
   def new
@@ -41,6 +42,6 @@ class TransactionsController < ApplicationController
 
   def transaction_params
     params.require(:transaction).permit(:amount,
-      :currency, :quotation, :transaction_type)
+      :currency, :quotation, :transaction_type, :user_id)
   end
 end
