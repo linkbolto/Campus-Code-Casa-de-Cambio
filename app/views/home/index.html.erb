@@ -6,9 +6,11 @@
 
 <%= form_tag '', method: :get do %>
     <%= label_tag :filter, 'Filtro por moeda' %>
-    <%= select_tag :filter, options_for_select( [['Dólar','dollar'], ['Real', 'real']]) %>
+    <%= select_tag :filter, options_for_select( [['Dólar', 'dollar'], ['Real', 'real']]) %>
     <%= submit_tag 'Filtrar' %>
 <% end %>
+
+<%= link_to 'Ver todas', root_path(filter: 'all') %>
 
 <% if @transactions.empty? %>
     <h2>Você ainda não possui transações cadastradas.</h2>
