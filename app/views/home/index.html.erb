@@ -4,31 +4,36 @@
 <%= link_to 'Cadastrar usuário', new_user_path %>
 <%= link_to 'Usuários', users_path %>
 
+<%= form_tag '', method: :get do %>
+    <%= label_tag :filter, 'Filtro por moeda' %>
+    <%= select_tag :filter, options_for_select( [['Dólar','dollar'], ['Real', 'real']]) %>
+    <%= submit_tag 'Filtrar' %>
+<% end %>
 
 <% if @transactions.empty? %>
-<h2>Você ainda não possui transações cadastradas</h2>
+    <h2>Você ainda não possui transações cadastradas.</h2>
 <% else %>
-<table>
-    <thead>
-        <tr>
-            <th>Identificador</th>
-            <th>Quantidade</th>
-            <th>Moeda</th>
-            <th>Tipo</th>
-            <th>Total</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @transactions.each do |t| %>
-        <tr>
-            <td><%= link_to t.id, t %></td>
-            <td><%= t.amount %></td>
-            <td><%= t.currency_pt %></td>
-            <td><%= t.transaction_type_pt %></td>
-            <td><%= t.total %></td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
+    <table>
+        <thead>
+            <tr>
+                <th>Identificador</th>
+                <th>Quantidade</th>
+                <th>Moeda</th>
+                <th>Tipo</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @transactions.each do |t| %>
+            <tr>
+                <td><%= link_to t.id, t %></td>
+                <td><%= t.amount %></td>
+                <td><%= t.currency_pt %></td>
+                <td><%= t.transaction_type_pt %></td>
+                <td><%= t.total %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
 <% end %>
-<%= notice %>   
+<%= notice %>  
