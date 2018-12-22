@@ -1,16 +1,20 @@
-<table>
-    <thead>
-        <tr>
-            <th>Identificador</th>
-            <th>E-mail</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @users.each do |u| %>
-        <tr>
-            <td><%= link_to u.id, u %></td>
-            <td><%= u.email %></td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
+<% unless @users.empty? %>
+    <table>
+        <thead>
+            <tr>
+                <th>Identificador</th>
+                <th>E-mail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @users.each do |u| %>
+            <tr>
+                <td><%= link_to u.id, u %></td>
+                <td><%= u.email %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+<% else %>
+    <p>Nenhum usuário cadastrado</p>
+<% end %>

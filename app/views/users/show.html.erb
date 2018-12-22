@@ -1,5 +1,16 @@
 <h3><%= @user.name %></h3>
-<p>E-mail: <%= @user.email %></p>
-<p>CPF: <%= @user.cpf %></p>
+<h3>E-mail:</h3>
+<p><%= @user.email %></p>
+<h3>CPF: </h3>
+<p><%= @user.cpf %></p>
 
+<h3>Endereço:</h3>
+<% if @user.address %>
+    <p><%= @user.address.street %></p>
+    <p><%= @user.address.neighbourhood %></p>
+    <p><%= @user.address.city %> - <%= @user.address.state %></p>
+    <p><%= @user.address.postal_code %></p>
+<% else %>
+    <p> Este usuário não tem um endereço cadastrado </p>
+<% end %>
 <%= link_to 'Editar', edit_user_path(@user) %>
