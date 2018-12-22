@@ -22,4 +22,11 @@ class Transaction < ApplicationRecord
   def date
     created_at.strftime('%d/%m/%Y')
   end
+
+  def total_num
+    value = amount
+    value /= quotation if currency == 'real'
+    value *= -1 if transaction_type == 'sell'
+    value
+  end
 end

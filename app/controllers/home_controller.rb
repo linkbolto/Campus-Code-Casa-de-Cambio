@@ -8,5 +8,10 @@ class HomeController < ApplicationController
     else
       @transactions = Transaction.where(currency: params[:filter])
     end
+
+    @total = 0.0
+    @transactions.each do |t|
+      @total += t.total_num
+    end
   end
 end
